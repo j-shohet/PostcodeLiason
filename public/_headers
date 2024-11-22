@@ -1,2 +1,2 @@
 X-Frame-Options: ALLOWALL
-Content-Security-Policy: frame-src 'self' https://your-wordpress-site.com
+Content-Security-Policy: frame-src 'self' https://soundpoundmatcher.netlify.app/
