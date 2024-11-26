@@ -1,0 +1,150 @@
+:root {
+    --ChippyTea: rgb(255, 196, 64);
+    --Vimto: rgb(173, 79, 183);
+    --Cotton: rgb(248, 242, 234);
+    --Graphine: rgb(41, 41, 35);
+    --M62: rgb(141, 152, 170);
+    --Cloudy: rgba(180, 192, 217, 0.7);
+    --ArndaleTile: rgb(232, 209, 163);
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--Cotton);
+    color: var(--Graphine);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    width: 100%;
+  }
+  
+  .card {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    max-width: 80%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Added */
+    overflow: visible; /* Ensure overflow is visible */
+  }
+  
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%); /* Center over the corner */
+    width: 120px; /* Adjust as needed */
+    height: 120px; /* Adjust as needed */
+  }
+  
+  h1, h2 {
+    font-size: 1.3rem;
+    color: var(--Graphine);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .input {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid var(--Cotton);
+    border-radius: 5px;
+    outline: none;
+    width: 75%;
+    background-color: var(--Cloudy);
+    text-align: center;
+  }
+  
+  .input::placeholder {
+    text-align: center;
+  }
+  
+  .button {
+    background-color: var(--M62);
+    color: var(--Graphine);
+    font-size: 1rem;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 2%;
+    margin-top: 7%;
+  }
+  
+  .button:hover {
+    background-color: var(--Vimto);
+    color: var(--Cotton);
+  }
+  
+  .result {
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: var(--Cloudy);
+    text-align: center;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .result-text {
+    font-size: 1.2rem;
+    color: var(--Vimto);
+    margin-bottom: 1rem;
+  }
+  
+  .apply-button {
+    background-color: var(--M62);
+    color: var(--Cotton);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .apply-button:hover {
+    background-color: var(--Vimto);
+  }
+  
+  .apply-button a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 600px) {
+    .card {
+      padding: 1rem;
+      width: 90%;
+      min-width: unset;
+    }
+  
+    h1, h2 {
+      font-size: 1.2rem;
+    }
+  
+    .input, .button, .apply-button {
+      width: 100%;
+    }
+  }
+  
