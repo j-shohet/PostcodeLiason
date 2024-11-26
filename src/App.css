@@ -69,6 +69,12 @@ h1, h2 {
   width: 100%;
 }
 
+h3 {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: normal;
+}
+
 .input {
   padding: 14.4px; /* Increased from 8px */
   font-size: 1.8rem; /* Increased from 1rem */
