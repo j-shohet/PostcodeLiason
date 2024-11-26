@@ -30,6 +30,7 @@ body {
   align-items: center;
   padding: 9%; /* Increased from 5% */
   width: 100%;
+  max-width: 1200px;
 }
 
 .card {
