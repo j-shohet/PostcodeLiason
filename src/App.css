@@ -218,3 +218,8 @@ h3 {
     padding: 0.5rem 1rem;
   }
 }
+
+.error-explanation {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
