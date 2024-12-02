@@ -48,6 +48,7 @@ const handleBackButton = (e) => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
+  console.log(postcodeLookup[extractPostcode(enteredPostcode)])
   if(enteredPostcode === ""){
 
   } else {
@@ -73,19 +74,24 @@ return (
         <button className='apply-button' onClick={handleBackButton}>Go back</button>
         <h1 className='error-title'>Unforutnatley you reside outside of our eligible area.</h1>
         <h2 className='error-explanation'>If you are interested in joining a credit union without the bus pass, please go to the link below to find one you are eligible for</h2>
-        <button className='apply-button'><a href="https://www.findyourcreditunion.co.uk">Find your credit union</a></button>
+        <button className='apply-button'><a href="https://www.findyourcreditunion.co.uk" target='_blank'>Find your credit union</a></button>
         </>
       )}
       {result && (
         <>
         <button className='apply-button' onClick={handleBackButton}>Go back</button>
         <h2>Your postcode matches with:</h2>
-        <div className="result">
-          <p className="result-text">{creditUnionDataTable[result].name}</p>
-          <button className="apply-button"><a href={creditUnionDataTable[result].ApplyLink}>
+        {result.map((creditunion) => {
+          return (
+            <div className="result" key={creditunion}>
+          <p className="result-text">{creditUnionDataTable[creditunion].name}</p>
+          <button className="apply-button"><a href={creditUnionDataTable[creditunion].ApplyLink} target='_blank'>
                 Visit Site
             </a></button>
         </div>
+          )
+        })}
+        
         </>
       )} </>: <><h1>Enter the postcode of where you live or work in Greater Manchester to find your local credit union options</h1>
           <input
