@@ -4,7 +4,6 @@ import postcodeLookupFile from "./postcode_lookup.json";
 import { parse, match, toNormalised } from "postcode";
 import logoImage from "./SoundPound.png";
 import CashboxLogo from "./assets/logos/CashboxLogo.png";
-import CashboxLogo2 from "./assets/logos/CashboxLogo2.png";
 import HootLogo from "./assets/logos/HootLogo.png";
 import ManchesterLogo from "./assets/logos/ManchesterLogo.png";
 import OldhamLogo from "./assets/logos/OldhamLogo.png";
@@ -114,9 +113,7 @@ function App() {
                   Unforutnatley you reside outside of our eligible area.
                 </h1>
                 <h2 className="error-explanation">
-                  If you are interested in joining a credit union without the
-                  bus pass, please go to the link below to find one you are
-                  eligible for
+                  If you would still like to join a credit union to access its range of services, please visit the website below.
                 </h2>
                 <button className="apply-button">
                   <a
@@ -134,30 +131,32 @@ function App() {
                   Go back
                 </button>
                 <h2>Your postcode matches with:</h2>
-                {result.map((creditunion) => {
-                  return (
-                    <div className="result" key={creditunion}>
-                      <div className="logo-name-container">
-                        <p className="result-text">
-                          {creditUnionDataTable[creditunion].name}
-                        </p>
-                        <img
-                          src={creditUnionDataTable[creditunion].img_url}
-                          className="result-logo"
-                        />
-                      </div>
+                {result
+                  .sort((a, b) => a - b)
+                  .map((creditunion) => {
+                    return (
+                      <div className="result" key={creditunion}>
+                        <div className="logo-name-container">
+                          <p className="result-text">
+                            {creditUnionDataTable[creditunion].name}
+                          </p>
+                          <img
+                            src={creditUnionDataTable[creditunion].img_url}
+                            className="result-logo"
+                          />
+                        </div>
 
-                      <button className="apply-button">
-                        <a
-                          href={creditUnionDataTable[creditunion].ApplyLink}
-                          target="_blank"
-                        >
-                          Visit Site
-                        </a>
-                      </button>
-                    </div>
-                  );
-                })}
+                        <button className="apply-button">
+                          <a
+                            href={creditUnionDataTable[creditunion].ApplyLink}
+                            target="_blank"
+                          >
+                            Visit Site
+                          </a>
+                        </button>
+                      </div>
+                    );
+                  })}
               </>
             )}{" "}
           </>
@@ -186,6 +185,7 @@ function App() {
           Bee Bus Ticket Loan through one credit union, but may have a choice
           over which credit union you use.{" "}
         </h3>
+        <p className="email-text">If you have any issues finding your credit union please email:</p><p className="email">hello@soundpoundgroup.co.uk</p>
       </div>
     </div>
   );

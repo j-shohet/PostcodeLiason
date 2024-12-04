@@ -8,13 +8,15 @@
   --ArndaleTile: rgb(232, 209, 163);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: var(--Cotton);
   color: var(--Graphine);
   display: flex;
@@ -61,7 +63,8 @@ html {
   transform: translate(-50%, -50%); /* Center over the corner */
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 2.34rem; /* Increased from 1.3rem */
   color: var(--Graphine);
   text-align: center;
@@ -73,6 +76,7 @@ h3 {
   font-size: 1rem;
   text-align: center;
   font-weight: normal;
+  font-style: italic;
 }
 
 .input {
@@ -91,8 +95,8 @@ h3 {
 }
 
 .button {
-  background-color: var(--M62);
-  color: var(--Graphine);
+  background-color: var(--Vimto);
+  color: var(--Cotton);
   font-size: 1.8rem; /* Increased from 1rem */
   padding: 14.4px 21.6px; /* Increased from 8px 12px */
   border: none;
@@ -104,27 +108,28 @@ h3 {
 }
 
 .button:hover {
-  background-color: var(--Vimto);
+  background-color: var(--Cloudy);
   color: var(--Cotton);
 }
 
 .result {
-  padding: 1.8rem; /* Increased from 1rem */
-  border-radius: 9px; /* Increased from 5px */
-  background-color: var(--Cloudy);
+  padding: 1.8rem;
+  border-radius: 9px;
+  background-color: var(--Cloudy); /* Remove background if any */
   text-align: center;
-  margin-top: 1.8rem; /* Increased from 1rem */
+  margin-top: 1.8rem;
   width: 100%;
 }
 
 .result-text {
-  font-size: 2.16rem; /* Increased from 1.2rem */
-  color: var(--Vimto);
-  margin-bottom: 1.8rem; /* Increased from 1rem */
+  font-size: 2.16rem;
+  color: var(--Graphine);
+  margin: 0; /* Remove default margin */
+  text-align: left;
 }
 
 .apply-button {
-  background-color: var(--M62);
+  background-color: var(--Vimto);
   color: var(--Cotton);
   font-size: 1.8rem; /* Increased from 1rem */
   padding: 0.9rem 1.8rem; /* Increased from 0.5rem 1rem */
@@ -132,15 +137,25 @@ h3 {
   border-radius: 9px; /* Increased from 5px */
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  display: block;
+  margin: 1rem auto 0 auto;
 }
 
 .logo-name-container {
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
+  background-color: white; /* Apply Cotton background */
+  padding: 1rem;
+  border-radius: 9px;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
 }
 
 .apply-button:hover {
-  background-color: var(--Vimto);
+  background-color: var(--M62);
 }
 
 .apply-button a {
@@ -149,9 +164,9 @@ h3 {
 }
 
 .result-logo {
-  width: 50%; /* Use percentage for responsiveness */
-  max-width: 216px; /* Scaled from 120px */
-  height: 50%; /* Maintain aspect ratio */
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 1rem;
 }
 
 @media (max-width: 800px) {
@@ -168,7 +183,8 @@ h3 {
     transform: translate(-50%, -50%);
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 1.8rem; /* Reduce font size */
     margin-bottom: 20px;
   }
@@ -193,7 +209,9 @@ h3 {
     padding: 0.7rem 1.2rem;
   }
 
-  .input, .button, .apply-button {
+  .input,
+  .button,
+  .apply-button {
     width: 100%;
   }
 }
@@ -205,7 +223,8 @@ h3 {
     transform: translate(-40%, -40%);
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 1.5rem;
   }
 
@@ -233,4 +252,15 @@ h3 {
 .error-explanation {
   font-size: 1.6rem;
   font-weight: normal;
+}
+
+.email-text {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.email {
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold
 }
