@@ -185,7 +185,7 @@ function App() {
           Bee Bus Ticket Loan through one credit union, but may have a choice
           over which credit union you use.{" "}
         </h3>
-        <p className="email-text">If you have any issues finding your credit union please email:</p><p className="email">hello@soundpoundgroup.co.uk</p>
+        <p className="email-text">If you have any issues finding your credit union please email:</p><p className="email"><a href="mailto:hello@soundpoundgroup.co.uk">hello@soundpoundgroup.co.uk</a></p>
       </div>
     </div>
   );
