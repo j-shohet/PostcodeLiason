@@ -89,6 +89,7 @@ function App() {
     } else {
       const companyName = postcodeLookup[extractPostcode(enteredPostcode)];
       if (companyName) {
+        console.log(companyName)
         setResult(companyName);
         setSearchDone(true);
       } else {
@@ -132,7 +133,7 @@ function App() {
                 </button>
                 <h2>Your postcode matches with:</h2>
                 {result
-                  .sort((a, b) => a - b)
+                  .sort()
                   .map((creditunion) => {
                     return (
                       <div className="result" key={creditunion}>
