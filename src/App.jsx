@@ -89,7 +89,6 @@ function App() {
     } else {
       const companyName = postcodeLookup[extractPostcode(enteredPostcode)];
       if (companyName) {
-        console.log(companyName)
         setResult(companyName);
         setSearchDone(true);
       } else {
@@ -162,7 +161,8 @@ function App() {
             )}{" "}
           </>
         ) : (
-          <>
+          
+          <form className="enter-form">
             <h1>
               Enter the postcode of where you live or work in Greater Manchester
               to find your local credit union options
@@ -177,7 +177,8 @@ function App() {
             <button type="submit" className="button" onClick={handleSubmit}>
               Search
             </button>
-          </>
+            </form>
+          
         )}
 
         <h3>
