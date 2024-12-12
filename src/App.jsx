@@ -39,7 +39,7 @@ function App() {
       name: "Unify Credit Union",
       img_url: UnifyLogo,
       ApplyLink:
-        "https://www.cusecureserver2.co.uk/~unifydigital/members/app_step_intro_mem.php",
+        "https://unifycu.org/Annual_Bee_Bus_Ticket",
     },
     Oldham: {
       name: "Oldham Credit Union",
@@ -50,7 +50,7 @@ function App() {
       name: "South Manchester Credit Union",
       img_url: SouthManchesterLogo,
       ApplyLink:
-        "https://www.smcreditunion.co.uk/join/?_gl=1*pppi5q*_ga*MTkzMTE2NzA2NC4xNzIwNzA2MjQy*_ga_8Z1SHBFSMZ*MTczMjg3ODE0NC4yMy4xLjE3MzI4NzgxNTcuNDcuMC4w",
+        "https://www.smcreditunion.co.uk/annual-bee-bus-ticket/",
     },
     Hoot: {
       name: "Hoot Credit Union",
@@ -60,13 +60,13 @@ function App() {
     "Cash Box": {
       name: "Cash Box Credit Union",
       img_url: CashboxLogo,
-      ApplyLink: "https://www.cashbox.org.uk/join-us",
+      ApplyLink: "https://www.cashbox.org.uk/loans/bee-bus-annual-pass-loan",
     },
     Salford: {
       name: "Salford Credit Union",
       img_url: SalfordLogo,
       ApplyLink:
-        "https://www.salfordcreditunion.com/how-to-join-salford-credit-union/",
+        "https://www.salfordcreditunion.com/annual-bee-bus-ticket-loan/",
     },
   };
 
