@@ -134,7 +134,7 @@ function App() {
                   {enteredPostcode.toUpperCase()}
                   {")"} matches with:
                 </h2>
-                {result.sort().map((creditunion) => {
+                {result.sort((a,b) => 0.5 - Math.random()).map((creditunion) => {
                   console.log(creditunion);
                   return (
                     <div className="result" key={creditunion}>
