@@ -1,76 +1,43 @@
 import { parse, match, toNormalised } from 'postcode';
 import postcodeLookupFile from "./postcode_lookup.json";
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import App from './App';
 
-const postcodeLookup = postcodeLookupFile
 
-function extractPostcode(input) {
-  const parsedInput = parse(input);
-  return parsedInput ? parsedInput.district.toUpperCase() : null;
+
+function generatePostcodeVariants(postcode) {
+  const upper = postcode.toUpperCase();
+  const lower = postcode.toLowerCase();
+  const noSpaces = postcode.replace(/\s+/g, '');
+  const variants = new Set([postcode, upper, lower, noSpaces]);
+  return Array.from(variants);
 }
 
-// Test suite
-describe("Postcode Extraction and Mapping Tests", () => {
-  describe("Valid postcode inputs", () => {
-    Object.entries(postcodeLookup).forEach(([district, expectedArea]) => {
-      const testPostcodes = [
-        `${district} 1AB`,
-        `${district}1AB`,
-        `${district.toLowerCase()} 1ab`,
-        `${district.toLowerCase()}1ab`,
-      ];
+describe('Full postcode lookup tests', () => {
+  // Loop through each entry in the postcode lookup data
+  Object.entries(postcodeLookupFile).forEach(([originalPostcode, expectedCreditUnions]) => {
+    const variants = generatePostcodeVariants(originalPostcode);
 
-      testPostcodes.forEach((postcode) => {
-        it(`should extract district '${district}' from input '${postcode}'`, () => {
-          const result = extractPostcode(postcode);
-          expect(result).not.toBeNull();
-          expect(result).toEqual(district.toUpperCase());
+    // For each variant of the postcode, ensure that the app displays the expected credit unions
+    variants.forEach((variant) => {
+      test(`Entering "${variant}" shows correct credit union options: ${expectedCreditUnions.join(', ')}`, async () => {
+        render(<App />);
+
+        // Enter the postcode variant
+        const inputField = screen.getByPlaceholderText(/Full Postcode/i);
+        fireEvent.change(inputField, { target: { value: variant } });
+        // Click the search button
+        fireEvent.click(screen.getByRole('button', { name: /search/i }));
+
+        // Wait for the results to appear
+        await waitFor(() => {
+          // Check that each expected credit union is displayed
+          expectedCreditUnions.forEach((creditUnion) => {
+            // The UI text includes "Credit Union" after the name, so we match that.
+            const regex = new RegExp(`${creditUnion}`);
+            expect(screen.getByText(regex)).toBeInTheDocument();
+          });
         });
-
-        it(`should map district '${district}' to area '${expectedArea}'`, () => {
-          const districtCode = extractPostcode(postcode);
-          expect(districtCode).not.toBeNull();
-          const area = postcodeLookup[districtCode];
-          expect(area).toEqual(expectedArea);
-        });
-      });
-    });
-  });
-
-  describe("Invalid postcode inputs", () => {
-    const invalidPostcodes = [
-      "INVALID",
-      "1234",
-      "XYZ 123",
-      "AB12 CD",
-      "",
-      null,
-      undefined,
-      "   ",
-    ];
-
-    invalidPostcodes.forEach((postcode) => {
-      it(`should return null for invalid input '${postcode}'`, () => {
-        const result = extractPostcode(postcode);
-        expect(result).toBeNull();
-      });
-    });
-  });
-
-  describe("Edge cases and overlapping districts", () => {
-    const edgeCasePostcodes = [
-      { input: "M60 1AB", expectedDistrict: "M60", expectedArea: "Salford" },
-      { input: "M6 1AB", expectedDistrict: "M6", expectedArea: "Salford" },
-      { input: "M25 1AB", expectedDistrict: "M25", expectedArea: "Hoot" },
-      { input: "M2 1AB", expectedDistrict: "M2", expectedArea: "South Manchester" },
-      { input: "BL6 1AB", expectedDistrict: "BL6", expectedArea: "Hoot" },
-    ];
-
-    edgeCasePostcodes.forEach(({ input, expectedDistrict, expectedArea }) => {
-      it(`should correctly extract and map '${expectedDistrict}' from input '${input}'`, () => {
-        const result = extractPostcode(input);
-        expect(result).toEqual(expectedDistrict);
-        const area = postcodeLookup[result];
-        expect(area).toEqual(expectedArea);
       });
     });
   });

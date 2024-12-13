@@ -38,8 +38,7 @@ function App() {
     Unify: {
       name: "Unify Credit Union",
       img_url: UnifyLogo,
-      ApplyLink:
-        "https://unifycu.org/Annual_Bee_Bus_Ticket",
+      ApplyLink: "https://unifycu.org/Annual_Bee_Bus_Ticket",
     },
     Oldham: {
       name: "Oldham Credit Union",
@@ -49,8 +48,7 @@ function App() {
     "South Manchester": {
       name: "South Manchester Credit Union",
       img_url: SouthManchesterLogo,
-      ApplyLink:
-        "https://www.smcreditunion.co.uk/annual-bee-bus-ticket/",
+      ApplyLink: "https://www.smcreditunion.co.uk/annual-bee-bus-ticket/",
     },
     Hoot: {
       name: "Hoot Credit Union",
@@ -70,11 +68,6 @@ function App() {
     },
   };
 
-  function extractPostcode(input) {
-    const parsedInput = parse(input);
-    return parsedInput.district;
-  }
-
   const handleBackButton = (e) => {
     e.preventDefault();
     setResult("");
@@ -84,9 +77,13 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const pcode = parse(enteredPostcode);
     if (enteredPostcode === "") {
+    } else if (postcodeLookup[pcode.postcode] !== undefined) {
+      setResult(postcodeLookup[pcode.postcode]);
+      setSearchDone(true);
     } else {
-      const companyName = postcodeLookup[extractPostcode(enteredPostcode)];
+      const companyName = postcodeLookup[pcode.district];
       if (companyName) {
         setResult(companyName);
         setSearchDone(true);
@@ -109,10 +106,13 @@ function App() {
                   Go back
                 </button>
                 <h1 className="error-title">
-                  Unforutnatley your postcode {"("}{enteredPostcode.toUpperCase()}{")"} is outside of our eligible area.
+                  Unforutnatley your postcode {"("}
+                  {enteredPostcode.toUpperCase()}
+                  {")"} is outside of our eligible area.
                 </h1>
                 <h2 className="error-explanation">
-                  If you would still like to join a credit union to access its range of services, please visit the website below.
+                  If you would still like to join a credit union to access its
+                  range of services, please visit the website below.
                 </h2>
                 <button className="apply-button">
                   <a
@@ -129,39 +129,40 @@ function App() {
                 <button className="apply-button" onClick={handleBackButton}>
                   Go back
                 </button>
-                <h2>Your postcode {"("}{enteredPostcode.toUpperCase()}{")"} matches with:</h2>
-                {result
-                  .sort()
-                  .map((creditunion) => {
-                    console.log(creditunion)
-                    return (
-                      <div className="result" key={creditunion}>
-                        <div className="logo-name-container">
-                          <p className="result-text">
-                            {creditUnionDataTable[creditunion].name}
-                          </p>
-                          <img
-                            src={creditUnionDataTable[creditunion].img_url}
-                            className="result-logo"
-                          />
-                        </div>
-
-                        <button className="apply-button">
-                          <a
-                            href={creditUnionDataTable[creditunion].ApplyLink}
-                            target="_blank"
-                          >
-                            Visit Site
-                          </a>
-                        </button>
+                <h2>
+                  Your postcode {"("}
+                  {enteredPostcode.toUpperCase()}
+                  {")"} matches with:
+                </h2>
+                {result.sort().map((creditunion) => {
+                  console.log(creditunion);
+                  return (
+                    <div className="result" key={creditunion}>
+                      <div className="logo-name-container">
+                        <p className="result-text">
+                          {creditUnionDataTable[creditunion].name}
+                        </p>
+                        <img
+                          src={creditUnionDataTable[creditunion].img_url}
+                          className="result-logo"
+                        />
                       </div>
-                    );
-                  })}
+
+                      <button className="apply-button">
+                        <a
+                          href={creditUnionDataTable[creditunion].ApplyLink}
+                          target="_blank"
+                        >
+                          Visit Site
+                        </a>
+                      </button>
+                    </div>
+                  );
+                })}
               </>
             )}{" "}
           </>
         ) : (
-          
           <form className="enter-form">
             <h1>
               Enter the postcode of where you live or work in Greater Manchester
@@ -177,8 +178,7 @@ function App() {
             <button type="submit" className="button" onClick={handleSubmit}>
               Search
             </button>
-            </form>
-          
+          </form>
         )}
 
         <h3>
@@ -187,7 +187,14 @@ function App() {
           Bee Bus Ticket Loan through one credit union, but may have a choice
           over which credit union you use.{" "}
         </h3>
-        <p className="email-text">If you have any issues finding your credit union please email:</p><p className="email"><a href="mailto:hello@soundpoundgroup.co.uk">hello@soundpoundgroup.co.uk</a></p>
+        <p className="email-text">
+          If you have any issues finding your credit union please email:
+        </p>
+        <p className="email">
+          <a href="mailto:hello@soundpoundgroup.co.uk">
+            hello@soundpoundgroup.co.uk
+          </a>
+        </p>
       </div>
     </div>
   );
