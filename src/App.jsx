@@ -21,7 +21,7 @@ function App() {
   const postcodeLookup = postcodeLookupFile;
 
   const handlePostcodeChange = (e) => {
-    setEnteredPostcode(e.target.value);
+    setEnteredPostcode(e.target.value.trim());
   };
 
   const creditUnionDataTable = {
@@ -84,7 +84,6 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(postcodeLookup[extractPostcode(enteredPostcode)]);
     if (enteredPostcode === "") {
     } else {
       const companyName = postcodeLookup[extractPostcode(enteredPostcode)];
@@ -110,7 +109,7 @@ function App() {
                   Go back
                 </button>
                 <h1 className="error-title">
-                  Unforutnatley you reside outside of our eligible area.
+                  Unforutnatley your postcode {"("}{enteredPostcode.toUpperCase()}{")"} is outside of our eligible area.
                 </h1>
                 <h2 className="error-explanation">
                   If you would still like to join a credit union to access its range of services, please visit the website below.
@@ -130,7 +129,7 @@ function App() {
                 <button className="apply-button" onClick={handleBackButton}>
                   Go back
                 </button>
-                <h2>Your postcode matches with:</h2>
+                <h2>Your postcode {"("}{enteredPostcode.toUpperCase()}{")"} matches with:</h2>
                 {result
                   .sort()
                   .map((creditunion) => {
