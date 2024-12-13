@@ -57,7 +57,7 @@ function App() {
       img_url: HootLogo,
       ApplyLink: "https://wisewithmoney.org.uk/loans/bee-bus-pass-loan/",
     },
-    "Cash Box": {
+    CashBox: {
       name: "Cash Box Credit Union",
       img_url: CashboxLogo,
       ApplyLink: "https://www.cashbox.org.uk/join-us",
@@ -134,6 +134,7 @@ function App() {
                 {result
                   .sort()
                   .map((creditunion) => {
+                    console.log(creditunion)
                     return (
                       <div className="result" key={creditunion}>
                         <div className="logo-name-container">
