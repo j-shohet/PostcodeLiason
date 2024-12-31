@@ -201,7 +201,7 @@ h3 {
   }
 
   .result-text {
-    font-size: 1.5rem;
+    font-size: 130%;
   }
 
   .apply-button {
@@ -223,11 +223,6 @@ h3 {
     transform: translate(-40%, -40%);
   }
 
-  h1,
-  h2 {
-    font-size: 1.5rem;
-  }
-
   .input {
     padding: 8px;
     font-size: 1rem;
@@ -237,10 +232,6 @@ h3 {
     font-size: 1rem;
     padding: 8px 12px;
     margin-top: 5%;
-  }
-
-  .result-text {
-    font-size: 1.2rem;
   }
 
   .apply-button {
@@ -262,18 +253,14 @@ h3 {
 .email {
   font-size: 0.8rem;
   text-align: center;
-  font-weight: bold
+  font-weight: bold;
 }
-
 
 @media (max-width: 800px) {
   .result-logo {
     width: 80px;
   }
 
-  .result-text {
-    font-size: 1.8rem;
-  }
 }
 
 @media (max-width: 500px) {
@@ -291,7 +278,6 @@ h3 {
     text-align: center;
   }
 }
-
 
 .enter-form {
   display: flex;

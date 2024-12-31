@@ -134,31 +134,33 @@ function App() {
                   {enteredPostcode.toUpperCase()}
                   {")"} matches with:
                 </h2>
-                {result.sort((a,b) => 0.5 - Math.random()).map((creditunion) => {
-                  console.log(creditunion);
-                  return (
-                    <div className="result" key={creditunion}>
-                      <div className="logo-name-container">
-                        <p className="result-text">
-                          {creditUnionDataTable[creditunion].name}
-                        </p>
-                        <img
-                          src={creditUnionDataTable[creditunion].img_url}
-                          className="result-logo"
-                        />
-                      </div>
+                {result
+                  .sort((a, b) => 0.5 - Math.random())
+                  .map((creditunion) => {
+                    console.log(creditunion);
+                    return (
+                      <div className="result" key={creditunion}>
+                        <div className="logo-name-container">
+                          <p className="result-text">
+                            {creditUnionDataTable[creditunion].name}
+                          </p>
+                          <img
+                            src={creditUnionDataTable[creditunion].img_url}
+                            className="result-logo"
+                          />
+                        </div>
 
-                      <button className="apply-button">
-                        <a
-                          href={creditUnionDataTable[creditunion].ApplyLink}
-                          target="_blank"
-                        >
-                          Visit Site
-                        </a>
-                      </button>
-                    </div>
-                  );
-                })}
+                        <button className="apply-button">
+                          <a
+                            href={creditUnionDataTable[creditunion].ApplyLink}
+                            target="_blank"
+                          >
+                            Visit Site
+                          </a>
+                        </button>
+                      </div>
+                    );
+                  })}
               </>
             )}{" "}
           </>
