@@ -33,7 +33,7 @@ function App() {
     Manchester: {
       name: "Manchester Credit Union",
       img_url: ManchesterLogo,
-      ApplyLink: "https://manchester.cuaccount.com/join/",
+      ApplyLink: "https://manchestercreditunion.co.uk/products/loans/bee-network-annual-bus-ticket",
     },
     Unify: {
       name: "Unify Credit Union",
