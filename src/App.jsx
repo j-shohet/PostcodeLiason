@@ -28,7 +28,7 @@ function App() {
     Stockport: {
       name: "Stockport Credit Union",
       img_url: StockportLogo,
-      ApplyLink: "https://www.stockportcu.com/join-today/",
+      ApplyLink: "https://www.stockportcu.com/what-we-do/annual-bee-bus-ticket/?",
     },
     Manchester: {
       name: "Manchester Credit Union",
