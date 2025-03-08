@@ -30,13 +30,17 @@ html {
   font-size: 18px; /* Increased from 16px to 18px (1.8 * 10px) */
 }
 
-.App {
+
+.payrollSearch,
+.postcode-search {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 9%; /* Increased from 5% */
   width: 100%;
 }
+
+
 
 .card {
   padding: 3.6rem; /* Increased from 2rem */

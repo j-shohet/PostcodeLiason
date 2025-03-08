@@ -12,7 +12,8 @@ import SouthManchesterLogo from "./assets/logos/SouthManchesterLogo.png";
 import StockportLogo from "./assets/logos/StockportLogo.png";
 import UnifyLogo from "./assets/logos/UnifyLogo.png";
 
-function App() {
+
+function Postcode() {
   const [enteredPostcode, setEnteredPostcode] = useState("");
   const [result, setResult] = useState("");
   const [searchDone, setSearchDone] = useState(false);
@@ -94,7 +95,7 @@ function App() {
     }
   };
   return (
-    <div className="App">
+    <div className="postcode-search">
       <div className="card">
         <img src={logoImage} alt="Logo" className="logo" />
         {}
@@ -202,4 +203,4 @@ function App() {
   );
 }
 
-export default App;
+export default Postcode;
