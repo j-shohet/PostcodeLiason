@@ -11,22 +11,34 @@ import SouthManchesterLogo from "./assets/logos/SouthManchesterLogo.png";
 import StockportLogo from "./assets/logos/StockportLogo.png";
 import UnifyLogo from "./assets/logos/UnifyLogo.png";
 import Select from "react-select";
+import {Link,  Navigate,  useNavigate} from "react-router-dom"
 
 function PayrollSearch() {
   const [payrollPartners, setPayrollPartners] = useState([]);
   const [selectedEmployer, setSelectedEmployer] = useState("");
   const [result, setResult] = useState("");
   const [searchDone, setSearchDone] = useState(false);
+ const navigate = useNavigate();
+
+
   const handleEmployerChange = (e) => {
     setSelectedEmployer({ name: e.label, creditUnions: e.value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setResult(() => {
-      console.log(selectedEmployer);
+      return selectedEmployer;
     });
     setSearchDone(true);
   };
+
+
+  const handleEmployerReset = () => {
+    setResult("")
+    setSearchDone(false)
+    setSelectedEmployer("")
+  }
 
   const converterFunc = (obj) => {
     const newEmployers = Object.keys(obj).map((employer) => ({
@@ -98,19 +110,43 @@ function PayrollSearch() {
               You can apply for deductions from your salary from the below
               credit unions...
             </h2>
+            {result.creditUnions.map((creditunion) => {
+              return (
+                <div className="result" key={creditunion}>
+                  <div className="logo-name-container">
+                    <p className="result-text">
+                      {creditUnionDataTable[creditunion].name}
+                    </p>
+                    <img
+                      src={creditUnionDataTable[creditunion].img_url}
+                      className="result-logo"
+                    />
+                  </div>
+
+                  <button className="apply-button">
+                    <a
+                      href={creditUnionDataTable[creditunion].ApplyLink}
+                      target="_blank"
+                    >
+                      Visit Site
+                    </a>
+                  </button>
+                </div>
+              );
+            })}
+            <div className="nav-button-container">
+              <button className="nav-button" onClick={handleEmployerReset}>
+                Select different employer
+              </button>
+              <Link to="/">
+                <button className="nav-button">
+                  Start again
+                </button>
+            </Link>
+            </div>
           </div>
         ) : (
           <form className="enter-form">
-            {/* <select
-            className="input"
-            name="employer"
-            onChange={handleEmployerChange}
-            placeholder="Full Postcode"
-          >
-            {payrollPartners.map((partner) => (
-              <option value={partner.name}>{partner.name}</option>
-            ))}
-          </select> */}
             <Select
               options={payrollPartners}
               className="input"

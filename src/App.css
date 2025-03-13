@@ -146,6 +146,25 @@ h3 {
   margin: 1rem auto 0 auto;
 }
 
+.nav-button-container{
+  display: flex;
+}
+
+.nav-button {
+  background-color: var(--ChippyTea);
+  color: var(--Graphine);
+  font-size: 1rem; /* Increased from 1rem */
+  padding: 0.9rem 1.8rem; /* Increased from 0.5rem 1rem */
+  border: none;
+  border-radius: 9px; /* Increased from 5px */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  display: block;
+  width: 50%;
+  margin: 1rem
+}
+
 .logo-name-container {
   display: flex;
   flex-direction: row-reverse;
