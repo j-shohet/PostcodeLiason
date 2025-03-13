@@ -30,7 +30,7 @@ html {
   font-size: 18px; /* Increased from 16px to 18px (1.8 * 10px) */
 }
 
-
+.landingPage,
 .payrollSearch,
 .postcode-search {
   display: flex;
@@ -162,7 +162,10 @@ h3 {
   margin-top: 1rem;
   display: block;
   width: 50%;
-  margin: 1rem
+  margin: 1rem;
+  text-decoration: none;
+  text-align: center;
+  
 }
 
 .logo-name-container {

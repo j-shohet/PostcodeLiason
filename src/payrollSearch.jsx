@@ -138,10 +138,9 @@ function PayrollSearch() {
               <button className="nav-button" onClick={handleEmployerReset}>
                 Select different employer
               </button>
-              <Link to="/">
-                <button className="nav-button">
+              <Link to="/" className="nav-button">
                   Start again
-                </button>
+                
             </Link>
             </div>
           </div>
