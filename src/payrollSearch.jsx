@@ -10,16 +10,16 @@ import SalfordLogo from "./assets/logos/SalfordLogo.png";
 import SouthManchesterLogo from "./assets/logos/SouthManchesterLogo.png";
 import StockportLogo from "./assets/logos/StockportLogo.png";
 import UnifyLogo from "./assets/logos/UnifyLogo.png";
+import MetroMoneywiseLogo from "./assets/logos/MetroMoneywise.png";
 import Select from "react-select";
-import {Link,  Navigate,  useNavigate} from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom";
 function PayrollSearch() {
   const [payrollPartners, setPayrollPartners] = useState([]);
   const [selectedEmployer, setSelectedEmployer] = useState("");
   const [result, setResult] = useState("");
   const [searchDone, setSearchDone] = useState(false);
-  const [iserror, setIsError] = useState(false)
- const navigate = useNavigate();
-
+  const [iserror, setIsError] = useState(false);
+  const navigate = useNavigate();
 
   const handleEmployerChange = (e) => {
     setSelectedEmployer({ name: e.label, creditUnions: e.value });
@@ -27,27 +27,25 @@ function PayrollSearch() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(selectedEmployer === ""){
+    if (selectedEmployer === "") {
       setTimeout(() => {
-        setIsError(false)
+        setIsError(false);
       }, 3000);
-      setIsError(true)
+      setIsError(true);
     } else {
       setResult(() => {
         return selectedEmployer;
       });
-      
+
       setSearchDone(true);
     }
-    
   };
 
-
   const handleEmployerReset = () => {
-    setResult("")
-    setSearchDone(false)
-    setSelectedEmployer("")
-  }
+    setResult("");
+    setSearchDone(false);
+    setSelectedEmployer("");
+  };
 
   const converterFunc = (obj) => {
     const newEmployers = Object.keys(obj).map((employer) => ({
@@ -102,6 +100,11 @@ function PayrollSearch() {
       ApplyLink:
         "https://www.salfordcreditunion.com/annual-bee-bus-ticket-loan/",
     },
+    "Metro Moneywise": {
+      name: "Metro Moneywise Credit Union",
+      img_url: MetroMoneywiseLogo,
+      ApplyLink: "https://www.metromoneywise.co.uk/loans/annual-bee-bus-ticket",
+    },
   };
 
   useEffect(() => {
@@ -113,7 +116,12 @@ function PayrollSearch() {
       <div className="card">
         <img src={logoImage} alt="Logo" className="logo" />
         <h1>Select your employer</h1>
-        {iserror ? <h3 className="error-message">Please select an employer by either starting to type or from the drop down list</h3> : null}
+        {iserror ? (
+          <h3 className="error-message">
+            Please select an employer by either starting to type or from the
+            drop down list
+          </h3>
+        ) : null}
         {searchDone ? (
           <div className="payroll-results">
             <h2>
@@ -148,17 +156,13 @@ function PayrollSearch() {
               <button className="nav-button" onClick={handleEmployerReset}>
                 Select different employer
               </button>
-              <Link to="/" className="nav-button">
-                  Start again
-                
-            </Link>
             </div>
           </div>
         ) : (
           <form className="enter-form">
             <Select
               options={payrollPartners}
-              className="input"
+              className="react-select"
               onChange={handleEmployerChange}
             />
             <button
@@ -177,6 +181,9 @@ function PayrollSearch() {
           Annual Bee Bus Ticket Loan through one credit union, but may have a
           choice over which credit union you use.{" "}
         </h3>
+        <Link to="/" className="goback-button">
+          Start again
+        </Link>
         <p className="email-text">
           If you have any issues finding your credit union please email:
         </p>

@@ -11,6 +11,7 @@ import SalfordLogo from "./assets/logos/SalfordLogo.png";
 import SouthManchesterLogo from "./assets/logos/SouthManchesterLogo.png";
 import StockportLogo from "./assets/logos/StockportLogo.png";
 import UnifyLogo from "./assets/logos/UnifyLogo.png";
+import { Link } from "react-router";
 
 
 function Postcode() {
@@ -103,9 +104,6 @@ function Postcode() {
           <>
             {error && (
               <>
-                <button className="apply-button" onClick={handleBackButton}>
-                  Go back
-                </button>
                 <h1 className="error-title">
                   Unforutnatley your postcode {"("}
                   {enteredPostcode.toUpperCase()}
@@ -127,9 +125,6 @@ function Postcode() {
             )}
             {result && (
               <>
-                <button className="apply-button" onClick={handleBackButton}>
-                  Go back
-                </button>
                 <h2>
                   Your postcode {"("}
                   {enteredPostcode.toUpperCase()}
@@ -162,6 +157,9 @@ function Postcode() {
                       </div>
                     );
                   })}
+                <button className="nav-button" onClick={handleBackButton}>
+                  Go back
+                </button>
               </>
             )}{" "}
           </>
@@ -190,6 +188,9 @@ function Postcode() {
           Bee Bus Ticket Loan through one credit union, but may have a choice
           over which credit union you use.{" "}
         </h3>
+        <Link to="/" className="goback-button">
+          Start again
+        </Link>
         <p className="email-text">
           If you have any issues finding your credit union please email:
         </p>

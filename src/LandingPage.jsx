@@ -14,18 +14,18 @@ return (
             <h1>Please select how you wish to pay for your ticket</h1>
     <div className="optionsContainer">
         
-        <div className="payrollContainer">
+        <div className="methodContainer">
             <Link to="/payroll" className="nav-button">
-            pay by payroll deduction
+            Payroll
             </Link>
-            <p className="payroll-explanation"></p>
+            <p className="payroll-explanation">Depending on your employer you may be able to pay for the ticket through salary deduction. On the following page, you can see if your employer is eligible, and how to apply</p>
         </div>
-        <div className="directContainer">
+        <div className="methodContainer">
             <Link to="postcode" className="nav-button">
-            pay a credit union directly
+            Direct
             </Link>
 
-        <p className="direct-explanation"></p>
+        <p className="direct-explanation">Join and pay a credit union directly for the ticket, which credit unions you apply through depends on your location!</p>
         </div>
     </div>
 </div>
