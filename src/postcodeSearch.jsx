@@ -188,7 +188,7 @@ function Postcode() {
           Bee Bus Ticket Loan through one credit union, but may have a choice
           over which credit union you use.{" "}
         </h3>
-        <Link to="/" className="goback-button">
+        <Link to="/" className="nav-button">
           Start again
         </Link>
         <p className="email-text">

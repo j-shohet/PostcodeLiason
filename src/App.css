@@ -149,9 +149,8 @@ h3 {
   justify-content: center;
 }
 
-
-.react-select{
-width: 80%;
+.react-select {
+  width: 80%;
 }
 
 .optionsContainer {
@@ -233,7 +232,7 @@ width: 80%;
 @media (max-width: 800px) {
   /* Adjusted breakpoint for larger scaled content */
   .card {
-    padding: 2rem; /* Reduce padding on smaller screens */
+    padding: 1rem; /* Reduce padding on smaller screens */
     width: 90%;
     min-width: unset;
   }
@@ -246,8 +245,9 @@ width: 80%;
 
   h1,
   h2 {
-    font-size: 1.8rem; /* Reduce font size */
+    font-size: 1rem; /* Reduce font size */
     margin-bottom: 20px;
+    margin-top: 50px;
   }
 
   .input {
@@ -265,6 +265,13 @@ width: 80%;
     font-size: 130%;
   }
 
+  .nav-button {
+    font-size: 80%;
+    padding: 10px 15px;
+    margin-top: 7%;
+    min-width: 80px;
+  }
+
   .apply-button {
     font-size: 1.2rem;
     padding: 0.7rem 1.2rem;
@@ -275,6 +282,19 @@ width: 80%;
   .apply-button {
     width: 100%;
   }
+
+  .methodContainer {
+    width: 100%;
+  }
+
+  .payroll-explanation,
+  .direct-explanation {
+    font-size: 1rem;
+  }
+
+  .result-logo {
+    width: 80px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -282,6 +302,12 @@ width: 80%;
     width: 30%; /* Further adjust logo size */
     max-width: 100px;
     transform: translate(-40%, -40%);
+  }
+
+  
+
+  .card {
+    width: 110%;
   }
 
   .input {
@@ -299,31 +325,13 @@ width: 80%;
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
-}
 
-.error-explanation {
-  font-size: 1.6rem;
-  font-weight: normal;
-}
-
-.email-text {
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-.email {
-  font-size: 0.8rem;
-  text-align: center;
-  font-weight: bold;
-}
-
-@media (max-width: 800px) {
-  .result-logo {
-    width: 80px;
+  .payroll-explanation,
+  .direct-explanation {
+    font-size: 0.8rem;
+    padding: 3%;
   }
-}
 
-@media (max-width: 500px) {
   .logo-name-container {
     flex-direction: column;
     align-items: center;
@@ -344,4 +352,20 @@ width: 80%;
   flex-direction: column;
   align-items: center;
   width: 70%;
+}
+
+.error-explanation {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+.email-text {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.email {
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
 }
