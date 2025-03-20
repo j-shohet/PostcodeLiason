@@ -192,7 +192,7 @@ function Postcode() {
           Start again
         </Link>
         <p className="email-text">
-          If you have any issues finding your credit union please email:
+          Need any help finding your credit union? Just email hello@soundpoundgroup.co.uk and we’ll get you sorted.
         </p>
         <p className="email">
           <a href="mailto:hello@soundpoundgroup.co.uk">

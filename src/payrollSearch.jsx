@@ -176,16 +176,13 @@ function PayrollSearch() {
         )}
 
         <h3>
-          Please note that based on your employer there may be more than one
-          credit union you are eligible to join. You can only access the Adult
-          Annual Bee Bus Ticket Loan through one credit union, but may have a
-          choice over which credit union you use.{" "}
+          There may be more than one credit union you can access the Annual Bee Bus Tickets through. All products and processes are the same – just pick whichever suits you best.{" "}
         </h3>
         <Link to="/" className="nav-button">
           Start again
         </Link>
         <p className="email-text">
-          If you have any issues finding your credit union please email:
+          Need any help finding your credit union? Just email hello@soundpoundgroup.co.uk and we’ll get you sorted.
         </p>
         <p className="email">
           <a href="mailto:hello@soundpoundgroup.co.uk">
