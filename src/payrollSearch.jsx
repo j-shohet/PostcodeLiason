@@ -53,7 +53,7 @@ function PayrollSearch() {
       label: employer,
     }));
 
-    setPayrollPartners((prevState) => newEmployers);
+    setPayrollPartners((prevState) => newEmployers.sort((a, b) => a.label.localeCompare(b.label)));
   };
 
   const creditUnionDataTable = {
