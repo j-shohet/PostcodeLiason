@@ -30,6 +30,12 @@ html {
   font-size: 18px; /* Increased from 16px to 18px (1.8 * 10px) */
 }
 
+
+ .payroll-explanation,
+  .direct-explanation {
+    padding: 3%;
+  }
+
 .landingPage,
 .payrollSearch,
 .postcode-search {

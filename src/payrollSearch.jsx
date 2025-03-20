@@ -53,7 +53,9 @@ function PayrollSearch() {
       label: employer,
     }));
 
-    setPayrollPartners((prevState) => newEmployers.sort((a, b) => a.label.localeCompare(b.label)));
+    setPayrollPartners((prevState) =>
+      newEmployers.sort((a, b) => a.label.localeCompare(b.label))
+    );
   };
 
   const creditUnionDataTable = {
@@ -115,7 +117,6 @@ function PayrollSearch() {
     <div className="payrollSearch">
       <div className="card">
         <img src={logoImage} alt="Logo" className="logo" />
-        <h1>Select your employer</h1>
         {iserror ? (
           <h3 className="error-message">
             Please select an employer by either starting to type or from the
@@ -125,8 +126,8 @@ function PayrollSearch() {
         {searchDone ? (
           <div className="payroll-results">
             <h2>
-              You can apply for deductions from your salary from the below
-              credit unions...
+              Your employer, {selectedEmployer.name} is partnered with the below
+              Credit Unions
             </h2>
             {result.creditUnions.map((creditunion) => {
               return (
@@ -154,40 +155,43 @@ function PayrollSearch() {
             })}
             <div className="nav-button-container">
               <button className="nav-button" onClick={handleEmployerReset}>
-                Select different employer
+                Go back
               </button>
             </div>
           </div>
         ) : (
-          <form className="enter-form">
-            <Select
-              options={payrollPartners}
-              className="react-select"
-              onChange={handleEmployerChange}
-            />
-            <button
-              type="submit"
-              className="apply-button"
-              onClick={handleSubmit}
-            >
-              See Results
-            </button>
-          </form>
+          <>
+            <h1>Select your employer</h1>
+            <form className="enter-form">
+              <Select
+                options={payrollPartners}
+                className="react-select"
+                onChange={handleEmployerChange}
+              />
+              <button
+                type="submit"
+                className="apply-button"
+                onClick={handleSubmit}
+              >
+                See Results
+              </button>
+            </form>
+          </>
         )}
-
         <h3>
-          There may be more than one credit union you can access the Annual Bee Bus Tickets through. All products and processes are the same – just pick whichever suits you best.{" "}
+          There may be more than one credit union you can access the Annual Bee
+          Bus Tickets through. All products and processes are the same – just
+          pick whichever suits you best.{" "}
         </h3>
         <Link to="/" className="nav-button">
           Start again
         </Link>
         <p className="email-text">
-          Need any help finding your credit union? Just email hello@soundpoundgroup.co.uk and we’ll get you sorted.
-        </p>
-        <p className="email">
-          <a href="mailto:hello@soundpoundgroup.co.uk">
-            hello@soundpoundgroup.co.uk
+          Need any help finding your credit union? Just email&nbsp;
+          <a href="mailto:hello@soundpoundgroup.co.uk" className="email-text">
+            hello@soundpoundgroup.co.uk&nbsp;
           </a>
+          and we’ll get you sorted.
         </p>
       </div>
     </div>
