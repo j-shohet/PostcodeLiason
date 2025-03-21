@@ -11,8 +11,10 @@ import SalfordLogo from "./assets/logos/SalfordLogo.png";
 import SouthManchesterLogo from "./assets/logos/SouthManchesterLogo.png";
 import StockportLogo from "./assets/logos/StockportLogo.png";
 import UnifyLogo from "./assets/logos/UnifyLogo.png";
+import { Link } from "react-router";
 
-function App() {
+
+function Postcode() {
   const [enteredPostcode, setEnteredPostcode] = useState("");
   const [result, setResult] = useState("");
   const [searchDone, setSearchDone] = useState(false);
@@ -94,7 +96,7 @@ function App() {
     }
   };
   return (
-    <div className="App">
+    <div className="postcode-search">
       <div className="card">
         <img src={logoImage} alt="Logo" className="logo" />
         {}
@@ -102,9 +104,6 @@ function App() {
           <>
             {error && (
               <>
-                <button className="apply-button" onClick={handleBackButton}>
-                  Go back
-                </button>
                 <h1 className="error-title">
                   Unforutnatley your postcode {"("}
                   {enteredPostcode.toUpperCase()}
@@ -126,9 +125,6 @@ function App() {
             )}
             {result && (
               <>
-                <button className="apply-button" onClick={handleBackButton}>
-                  Go back
-                </button>
                 <h2>
                   Your postcode {"("}
                   {enteredPostcode.toUpperCase()}
@@ -161,6 +157,9 @@ function App() {
                       </div>
                     );
                   })}
+                <button className="nav-button" onClick={handleBackButton}>
+                  Go back
+                </button>
               </>
             )}{" "}
           </>
@@ -189,17 +188,19 @@ function App() {
           Bee Bus Ticket Loan through one credit union, but may have a choice
           over which credit union you use.{" "}
         </h3>
+        <Link to="/" className="nav-button">
+          Start again
+        </Link>
         <p className="email-text">
-          If you have any issues finding your credit union please email:
-        </p>
-        <p className="email">
-          <a href="mailto:hello@soundpoundgroup.co.uk">
-            hello@soundpoundgroup.co.uk
+          Need any help finding your credit union? Just email&nbsp;
+          <a href="mailto:hello@soundpoundgroup.co.uk" className="email-text">
+            hello@soundpoundgroup.co.uk&nbsp;
           </a>
+          and we’ll get you sorted.
         </p>
       </div>
     </div>
   );
 }
 
-export default App;
+export default Postcode;

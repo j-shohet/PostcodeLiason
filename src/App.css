@@ -30,7 +30,15 @@ html {
   font-size: 18px; /* Increased from 16px to 18px (1.8 * 10px) */
 }
 
-.App {
+
+ .payroll-explanation,
+  .direct-explanation {
+    padding: 3%;
+  }
+
+.landingPage,
+.payrollSearch,
+.postcode-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,6 +150,64 @@ h3 {
   margin: 1rem auto 0 auto;
 }
 
+.nav-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.react-select {
+  width: 80%;
+}
+
+.optionsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.methodContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+}
+
+.nav-button {
+  background-color: var(--ChippyTea);
+  color: var(--Graphine);
+  font-size: 1rem; /* Increased from 1rem */
+  padding: 0.9rem 1.8rem; /* Increased from 0.5rem 1rem */
+  border: none;
+  border-radius: 9px; /* Increased from 5px */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  display: block;
+  width: 50%;
+  margin: 1rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.goback-button {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--ChippyTea);
+  color: var(--Graphine);
+  font-size: 0.8rem; /* Increased from 1rem */
+  padding: 0.5rem 1.2rem; /* Increased from 0.5rem 1rem */
+  border: none;
+  border-radius: 9px; /* Increased from 5px */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.1rem;
+  display: block;
+  width: 20%;
+  margin: 1rem;
+  text-decoration: none;
+  text-align: center;
+}
+
 .logo-name-container {
   display: flex;
   flex-direction: row-reverse;
@@ -172,7 +238,7 @@ h3 {
 @media (max-width: 800px) {
   /* Adjusted breakpoint for larger scaled content */
   .card {
-    padding: 2rem; /* Reduce padding on smaller screens */
+    padding: 1rem; /* Reduce padding on smaller screens */
     width: 90%;
     min-width: unset;
   }
@@ -185,8 +251,9 @@ h3 {
 
   h1,
   h2 {
-    font-size: 1.8rem; /* Reduce font size */
+    font-size: 1rem; /* Reduce font size */
     margin-bottom: 20px;
+    margin-top: 50px;
   }
 
   .input {
@@ -204,6 +271,13 @@ h3 {
     font-size: 130%;
   }
 
+  .nav-button {
+    font-size: 80%;
+    padding: 10px 15px;
+    margin-top: 7%;
+    min-width: 80px;
+  }
+
   .apply-button {
     font-size: 1.2rem;
     padding: 0.7rem 1.2rem;
@@ -214,6 +288,19 @@ h3 {
   .apply-button {
     width: 100%;
   }
+
+  .methodContainer {
+    width: 100%;
+  }
+
+  .payroll-explanation,
+  .direct-explanation {
+    font-size: 1rem;
+  }
+
+  .result-logo {
+    width: 80px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -221,6 +308,12 @@ h3 {
     width: 30%; /* Further adjust logo size */
     max-width: 100px;
     transform: translate(-40%, -40%);
+  }
+
+  
+
+  .card {
+    width: 110%;
   }
 
   .input {
@@ -238,32 +331,13 @@ h3 {
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
-}
 
-.error-explanation {
-  font-size: 1.6rem;
-  font-weight: normal;
-}
-
-.email-text {
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-.email {
-  font-size: 0.8rem;
-  text-align: center;
-  font-weight: bold;
-}
-
-@media (max-width: 800px) {
-  .result-logo {
-    width: 80px;
+  .payroll-explanation,
+  .direct-explanation {
+    font-size: 0.8rem;
+    padding: 3%;
   }
 
-}
-
-@media (max-width: 500px) {
   .logo-name-container {
     flex-direction: column;
     align-items: center;
@@ -283,4 +357,21 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 70%;
+}
+
+.error-explanation {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+.email-text {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.email {
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
 }
