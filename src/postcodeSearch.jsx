@@ -50,7 +50,7 @@ function Postcode() {
     "South Manchester": {
       name: "South Manchester Credit Union",
       img_url: SouthManchesterLogo,
-      ApplyLink: "https://www.smcreditunion.co.uk/annual-bee-bus-ticket/",
+      ApplyLink: "https://www.smcreditunion.co.uk/annual-bee-network-tickets/",
     },
     Hoot: {
       name: "Hoot Credit Union",
